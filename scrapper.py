@@ -108,7 +108,6 @@ get_data("https://lacoste.ru/catalog/polo-muzh/")
 def data_reciever(x):
     data0 = pd.read_csv(x, index_col=False)
     data0 = pd.DataFrame(data0).drop(columns='Unnamed: 0')
-    data0
     data = pd.DataFrame()
     data['name'] = data0['0'][::8].values
     data['price'] = data0['0'][1::8].values
@@ -118,7 +117,6 @@ def data_reciever(x):
     data['style'] = data0['0'][5::8].values
     data['design'] = data0['0'][6::8].values
     data['season'] = data0['0'][7::8].values
-    data.dropna()
     data.to_csv('data_ready.csv')
 
 
